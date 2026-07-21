@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WindowsRouteImport } from './routes/windows'
+import { Route as RoofingRouteImport } from './routes/roofing'
+import { Route as PestRouteImport } from './routes/pest'
+import { Route as HvacRouteImport } from './routes/hvac'
+import { Route as HandymanRouteImport } from './routes/handyman'
+import { Route as FlooringRouteImport } from './routes/flooring'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WindowsRoute = WindowsRouteImport.update({
+  id: '/windows',
+  path: '/windows',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoofingRoute = RoofingRouteImport.update({
+  id: '/roofing',
+  path: '/roofing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PestRoute = PestRouteImport.update({
+  id: '/pest',
+  path: '/pest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HvacRoute = HvacRouteImport.update({
+  id: '/hvac',
+  path: '/hvac',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HandymanRoute = HandymanRouteImport.update({
+  id: '/handyman',
+  path: '/handyman',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FlooringRoute = FlooringRouteImport.update({
+  id: '/flooring',
+  path: '/flooring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/flooring': typeof FlooringRoute
+  '/handyman': typeof HandymanRoute
+  '/hvac': typeof HvacRoute
+  '/pest': typeof PestRoute
+  '/roofing': typeof RoofingRoute
+  '/windows': typeof WindowsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/flooring': typeof FlooringRoute
+  '/handyman': typeof HandymanRoute
+  '/hvac': typeof HvacRoute
+  '/pest': typeof PestRoute
+  '/roofing': typeof RoofingRoute
+  '/windows': typeof WindowsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/flooring': typeof FlooringRoute
+  '/handyman': typeof HandymanRoute
+  '/hvac': typeof HvacRoute
+  '/pest': typeof PestRoute
+  '/roofing': typeof RoofingRoute
+  '/windows': typeof WindowsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/flooring'
+    | '/handyman'
+    | '/hvac'
+    | '/pest'
+    | '/roofing'
+    | '/windows'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/flooring'
+    | '/handyman'
+    | '/hvac'
+    | '/pest'
+    | '/roofing'
+    | '/windows'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/flooring'
+    | '/handyman'
+    | '/hvac'
+    | '/pest'
+    | '/roofing'
+    | '/windows'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  FlooringRoute: typeof FlooringRoute
+  HandymanRoute: typeof HandymanRoute
+  HvacRoute: typeof HvacRoute
+  PestRoute: typeof PestRoute
+  RoofingRoute: typeof RoofingRoute
+  WindowsRoute: typeof WindowsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/windows': {
+      id: '/windows'
+      path: '/windows'
+      fullPath: '/windows'
+      preLoaderRoute: typeof WindowsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roofing': {
+      id: '/roofing'
+      path: '/roofing'
+      fullPath: '/roofing'
+      preLoaderRoute: typeof RoofingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pest': {
+      id: '/pest'
+      path: '/pest'
+      fullPath: '/pest'
+      preLoaderRoute: typeof PestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hvac': {
+      id: '/hvac'
+      path: '/hvac'
+      fullPath: '/hvac'
+      preLoaderRoute: typeof HvacRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/handyman': {
+      id: '/handyman'
+      path: '/handyman'
+      fullPath: '/handyman'
+      preLoaderRoute: typeof HandymanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flooring': {
+      id: '/flooring'
+      path: '/flooring'
+      fullPath: '/flooring'
+      preLoaderRoute: typeof FlooringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +197,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  FlooringRoute: FlooringRoute,
+  HandymanRoute: HandymanRoute,
+  HvacRoute: HvacRoute,
+  PestRoute: PestRoute,
+  RoofingRoute: RoofingRoute,
+  WindowsRoute: WindowsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
