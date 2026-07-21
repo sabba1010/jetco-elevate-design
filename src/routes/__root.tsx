@@ -85,8 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "JetCo Home & Commercial Services — Six trusted trades, one team." },
       { name: "twitter:description", content: "Pest control, HVAC, roofing, windows, flooring and handyman services from one trusted, local team. Licensed, insured and guaranteed." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ce4c9b8c-98de-4d5f-97e4-c129d1a4b5f5/id-preview-a538852f--76bfa2c0-37e6-400b-ba74-89c903a2e892.lovable.app-1784611712676.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ce4c9b8c-98de-4d5f-97e4-c129d1a4b5f5/id-preview-a538852f--76bfa2c0-37e6-400b-ba74-89c903a2e892.lovable.app-1784611712676.png" },
+
     ],
     links: [
       { rel: "stylesheet", href: appCss },

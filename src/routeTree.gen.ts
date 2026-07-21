@@ -9,43 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WindowsRouteImport } from './routes/windows'
-import { Route as RoofingRouteImport } from './routes/roofing'
-import { Route as PestRouteImport } from './routes/pest'
-import { Route as HvacRouteImport } from './routes/hvac'
-import { Route as HandymanRouteImport } from './routes/handyman'
-import { Route as FlooringRouteImport } from './routes/flooring'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FlooringRouteImport } from './routes/flooring'
+import { Route as HandymanRouteImport } from './routes/handyman'
+import { Route as HvacRouteImport } from './routes/hvac'
+import { Route as PestRouteImport } from './routes/pest'
+import { Route as RoofingRouteImport } from './routes/roofing'
+import { Route as WindowsRouteImport } from './routes/windows'
 
-const WindowsRoute = WindowsRouteImport.update({
-  id: '/windows',
-  path: '/windows',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RoofingRoute = RoofingRouteImport.update({
-  id: '/roofing',
-  path: '/roofing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PestRoute = PestRouteImport.update({
-  id: '/pest',
-  path: '/pest',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HvacRoute = HvacRouteImport.update({
-  id: '/hvac',
-  path: '/hvac',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HandymanRoute = HandymanRouteImport.update({
-  id: '/handyman',
-  path: '/handyman',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FlooringRoute = FlooringRouteImport.update({
-  id: '/flooring',
-  path: '/flooring',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -53,9 +28,34 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const FlooringRoute = FlooringRouteImport.update({
+  id: '/flooring',
+  path: '/flooring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HandymanRoute = HandymanRouteImport.update({
+  id: '/handyman',
+  path: '/handyman',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HvacRoute = HvacRouteImport.update({
+  id: '/hvac',
+  path: '/hvac',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PestRoute = PestRouteImport.update({
+  id: '/pest',
+  path: '/pest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoofingRoute = RoofingRouteImport.update({
+  id: '/roofing',
+  path: '/roofing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WindowsRoute = WindowsRouteImport.update({
+  id: '/windows',
+  path: '/windows',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -136,46 +136,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/windows': {
-      id: '/windows'
-      path: '/windows'
-      fullPath: '/windows'
-      preLoaderRoute: typeof WindowsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/roofing': {
-      id: '/roofing'
-      path: '/roofing'
-      fullPath: '/roofing'
-      preLoaderRoute: typeof RoofingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pest': {
-      id: '/pest'
-      path: '/pest'
-      fullPath: '/pest'
-      preLoaderRoute: typeof PestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hvac': {
-      id: '/hvac'
-      path: '/hvac'
-      fullPath: '/hvac'
-      preLoaderRoute: typeof HvacRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/handyman': {
-      id: '/handyman'
-      path: '/handyman'
-      fullPath: '/handyman'
-      preLoaderRoute: typeof HandymanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/flooring': {
-      id: '/flooring'
-      path: '/flooring'
-      fullPath: '/flooring'
-      preLoaderRoute: typeof FlooringRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -185,11 +150,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/flooring': {
+      id: '/flooring'
+      path: '/flooring'
+      fullPath: '/flooring'
+      preLoaderRoute: typeof FlooringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/handyman': {
+      id: '/handyman'
+      path: '/handyman'
+      fullPath: '/handyman'
+      preLoaderRoute: typeof HandymanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hvac': {
+      id: '/hvac'
+      path: '/hvac'
+      fullPath: '/hvac'
+      preLoaderRoute: typeof HvacRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pest': {
+      id: '/pest'
+      path: '/pest'
+      fullPath: '/pest'
+      preLoaderRoute: typeof PestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roofing': {
+      id: '/roofing'
+      path: '/roofing'
+      fullPath: '/roofing'
+      preLoaderRoute: typeof RoofingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/windows': {
+      id: '/windows'
+      path: '/windows'
+      fullPath: '/windows'
+      preLoaderRoute: typeof WindowsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -208,3 +208,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

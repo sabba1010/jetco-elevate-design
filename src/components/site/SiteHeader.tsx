@@ -32,43 +32,48 @@ export function SiteHeader() {
           : "bg-transparent"
       }`}
     >
-      <div className="container-x flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2.5">
+      <div className="container-x flex items-center justify-between py-3 gap-4">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 shrink-0">
           <span className="grid h-9 w-9 place-items-center rounded-full bg-ink text-cream text-sm font-semibold">
             J
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-xl text-ink">JetCo</span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-ink-soft">
+            <span className="font-display text-xl text-ink whitespace-nowrap">JetCo</span>
+            <span className="text-[10px] uppercase tracking-[0.18em] text-ink-soft whitespace-nowrap">
               Home &amp; Commercial
             </span>
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1">
+        {/* Desktop Nav */}
+        <nav className="hidden xl:flex items-center gap-0.5 shrink-0">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              className="px-3 py-2 text-sm text-ink-soft rounded-full hover:text-ink hover:bg-muted transition-colors data-[status=active]:text-ink data-[status=active]:bg-muted"
+              className="px-2.5 py-2 text-sm text-ink-soft rounded-full hover:text-ink hover:bg-muted transition-colors whitespace-nowrap data-[status=active]:text-ink data-[status=active]:bg-muted"
             >
               {n.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-2">
-          <a href="tel:+18005385826" className="btn-ghost text-sm !py-2.5 !px-4">
-            <Phone className="h-4 w-4" /> (800) JET-CO26
+        {/* CTA Buttons */}
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
+          <a href="tel:+18005385826" className="btn-ghost text-sm !py-2 !px-3.5 whitespace-nowrap">
+            <Phone className="h-4 w-4 shrink-0" />
+            <span>(800) JET-CO26</span>
           </a>
-          <Link to="/contact" className="btn-gold text-sm !py-2.5 !px-4">
-            Get Free Quote
+          <Link to="/contact" className="btn-gold text-sm !py-2 !px-3.5 whitespace-nowrap">
+            Free Quote
           </Link>
         </div>
 
+        {/* Mobile hamburger */}
         <button
-          className="lg:hidden grid place-items-center h-10 w-10 rounded-full border border-border"
+          className="xl:hidden grid place-items-center h-10 w-10 rounded-full border border-border shrink-0"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -77,7 +82,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background">
+        <div className="xl:hidden border-t border-border bg-background">
           <div className="container-x py-4 flex flex-col gap-1">
             {NAV.map((n) => (
               <Link
@@ -91,7 +96,7 @@ export function SiteHeader() {
             ))}
             <div className="flex gap-2 pt-3">
               <a href="tel:+18005385826" className="btn-ghost flex-1">
-                <Phone className="h-4 w-4" /> Call
+                <Phone className="h-4 w-4" /> (800) JET-CO26
               </a>
               <Link to="/contact" className="btn-gold flex-1" onClick={() => setOpen(false)}>
                 Free Quote
