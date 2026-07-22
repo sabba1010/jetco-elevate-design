@@ -30,7 +30,6 @@ export function SiteHeader() {
           ? "backdrop-blur-md bg-background/85 border-b border-border/70"
           : "bg-transparent"
         }`}
-
     >
       <div className="container-x flex items-center justify-between py-3 gap-4">
         {/* Logo */}
