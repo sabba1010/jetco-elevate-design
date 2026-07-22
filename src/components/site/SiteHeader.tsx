@@ -26,11 +26,11 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all ${
-        scrolled
+      className={`sticky top-0 z-50 transition-all ${scrolled
           ? "backdrop-blur-md bg-background/85 border-b border-border/70"
           : "bg-transparent"
-      }`}
+        }`}
+
     >
       <div className="container-x flex items-center justify-between py-3 gap-4">
         {/* Logo */}
